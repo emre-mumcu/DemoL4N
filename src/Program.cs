@@ -17,3 +17,29 @@ var app = builder.Build();
 app.MapDefaultControllerRoute();
 
 app.Run();
+
+
+// Alternate Use:
+// --------------
+// You can integrate log4net with the Microsoft.Extensions.Logging framework. This allows you to use log4net as the underlying logging provider while taking advantage of the built-in logging abstractions provided by .NET.
+
+// dotnet add package Microsoft.Extensions.Logging.Log4Net.AspNetCore
+
+// builder.Logging.ClearProviders();
+// builder.Logging.AddLog4Net("log4net.config");
+
+// app.MapGet("/", (ILogger<Program> logger) =>
+// {
+//     logger.LogDebug("Hello, log4net with Microsoft.Extensions.Logging!");
+//     return "Hello, log4net with minimal API!";
+// });
+
+// public class SampleController : ControllerBase
+// {
+//     private readonly ILogger<SampleController> _logger;
+
+//     public SampleController(ILogger<SampleController> logger)
+//     {
+//         _logger = logger;
+//     }
+// }
