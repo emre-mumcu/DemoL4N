@@ -35,9 +35,11 @@ app.Run();
 // });
 
 // public class SampleController : ControllerBase
-// {
-//     private readonly ILogger<SampleController> _logger;
+// {    // Get logger either from LogManager
+//      private readonly ILog _logger = LogManager.GetLogger(typeof(SampleController));
 
+        // Or from DI
+//     private readonly ILogger<SampleController> _logger;
 //     public SampleController(ILogger<SampleController> logger)
 //     {
 //         _logger = logger;
